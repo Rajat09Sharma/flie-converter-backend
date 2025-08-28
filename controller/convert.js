@@ -1,4 +1,4 @@
-process.env.LIBREOFFICE_BIN = "C:\\Program Files (x86)\\LibreOffice\\program\\soffice.exe";
+// process.env.LIBREOFFICE_BIN = "C:\\Program Files (x86)\\LibreOffice\\program\\soffice.exe";
 
 const fs = require("fs").promises;
 const path = require("path");

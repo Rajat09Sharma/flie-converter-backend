@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const multer = require("multer");
@@ -5,7 +6,7 @@ const multer = require("multer");
 const PDFtoWordRoute = require("./routes/convert");
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

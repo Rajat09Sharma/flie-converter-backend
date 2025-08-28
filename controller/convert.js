@@ -1,4 +1,4 @@
-// process.env.LIBREOFFICE_BIN = "C:\\Program Files (x86)\\LibreOffice\\program\\soffice.exe";
+process.env.LIBREOFFICE_BIN = "C:\\Program Files (x86)\\LibreOffice\\program\\soffice.exe";
 
 const fs = require("fs").promises;
 const path = require("path");
@@ -60,7 +60,7 @@ async function convertWordToPDFHandler(req, res) {
 
     try {
         const fileData = await fs.readFile(inputPath);
-        const convertedData = await libreConvertAsync(fileData, ext, undefined);
+        const convertedData = await libre.convertAsync(fileData, ext, undefined);
 
         await fs.writeFile(outputPath, convertedData);
 

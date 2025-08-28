@@ -3,9 +3,10 @@
 const fs = require("fs").promises;
 const path = require("path");
 const libre = require("libreoffice-convert");
-const { promisify } = require("util");
+// const { promisify } = require("util");
 
-const libreConvertAsync = promisify(libre.convert);
+// const libreConvertAsync = promisify(libre.convert);
+libre.convertAsync = require('util').promisify(libre.convert);
 
 // =======================
 // Convert PDF → Word
@@ -20,7 +21,7 @@ async function convertPDFtoWordHandler(req, res) {
 
     try {
         const fileData = await fs.readFile(inputPath);
-        const convertedData = await libreConvertAsync(fileData, ext, undefined);
+        const convertedData = await libre.convertAsync(fileData, ext, undefined);
 
         await fs.writeFile(outputPath, convertedData);
 
